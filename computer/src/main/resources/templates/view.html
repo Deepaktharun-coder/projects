@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Employee - View</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+
+<h1>Employee Management System</h1>
+<div class="container">
+	<h4>Employee's List</h4>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+				<th>Phone</th>
+				<th>Department</th>
+				<th>Salary</th>
+				<th colspan="2">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="s:${list}">
+				<td th:text="${s.id}"></td>
+				<td th:text="${s.name}"></td>
+				<td th:text="${s.phone}"></td>
+				<td th:text="${s.dept}"></td>
+				<td th:text="${s.salary}"></td>
+				<td>
+					<a th:href="@{/edit/{id}(id=${s.id})}" class="btn btn-warning btn-sm">Edit</a>
+					<a th:href="@{/delete/{id}(id=${s.id})}" onclick="return confirm('Are you sure?')" class="btn btn-danger btn-sm">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<a th:href="@{/}">Add New Employee</a>
+</div>
+
+</body>
+</html>
+
