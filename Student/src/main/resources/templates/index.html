@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+
+<meta charset="UTF-8">
+<title>Students-data</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link th:href="@{/style.css}" rel="stylesheet">
+<style>
+h3{
+color:green;
+text-decoration:underline;
+text-align:Center;
+}
+</style>
+</head>
+<body>
+<div class="container" style="max-width:300px">
+<h1>STUDENT DATA</h1>
+<form th:object="${st} "method="post" th:action="@{/}">
+
+		<div>
+		<lable>Name</lable>
+			<input type="text" th:field="*{name}" class="form-control">
+			
+		</div>
+			<div>
+			<lable>Dep</lable>
+				<input type="text" th:field="*{dep}"class="form-control">
+				
+			</div>
+				<div>
+				<lable>Sec</lable>
+					<input type="text" th:field="*{sec}" class="form-control">
+					
+				</div>    
+					<div>
+					<lable>Cgpa</lable>
+						<input type="number" step="any"  th:field="*{cgpa}"class="form-control">
+						
+					</div>
+			<div>
+<input type="submit" class="btn btn-primary">
+		</div>
+</form>
+<a th:href="@{/view}">view students list</a>
+</div>
+</body>
+</html>
